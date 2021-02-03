@@ -1,3 +1,6 @@
+# This file should contain dictionaries that field names 
+# of NBI ASCII data files to (base 1) indicies
+
 nbi_format_2021 = {'State Code': [1, 3],
  'Structure Number': [4, 18],
  'Inventory Route': [19, 27],
@@ -127,11 +130,4 @@ nbi_format_2021 = {'State Code': [1, 3],
  'YEAR OF FUTURE AVG DAILY TRAFFIC': [382, 385],
  'MINIMUM NAVIGATION VERTICAL CLEARANCE VERTICAL LIFT BRIDGE': [386, 389],
  'Washington Headquarters Use': [390, 433]}
-
- state_codes = {
-
-     '014': 'Albama',
-     '020': 'Alaska',
-     '04'
- }
 

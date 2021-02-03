@@ -19,6 +19,12 @@ class NbiReader():
     def parse_file(self, filepath):
         with open(filepath) as handle:
             return [self._read_line(line) for line in handle.readlines()]
+
+# how will field decoders work in this situation
+
+class fieldDecoder(dict):
+
+    def __init__(self, file)
     
     
     
