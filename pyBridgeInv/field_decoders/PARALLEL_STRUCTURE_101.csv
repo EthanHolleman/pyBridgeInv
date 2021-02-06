@@ -1,0 +1,9 @@
+Code;Description
+R;"The right structure of parallel bridges
+carrying the roadway in the direction of the
+inventory. (For a STRAHNET highway, this is
+west to east and south to north.)"
+L;"The left structure of parallel bridges. This
+structure carries traffic in the opposite
+direction."
+N;No parallel structure exists.

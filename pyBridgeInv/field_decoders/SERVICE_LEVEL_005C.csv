@@ -1,9 +1,9 @@
-Code,Description
-0,None
-1,Mainline
-2,Alternate
-3,Bypass
-4,Spur
-6,Business
-7,Ramp
-8,Service and/or unclassified frontage road
+Code;Description
+0;None of the below
+1;Mainline
+2;Alternate
+3;Bypass
+4;Spur
+6;Business
+7;Ramp, Wye, Connector, etc.
+8;Service and/or unclassified frontage road

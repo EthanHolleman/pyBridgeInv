@@ -1,0 +1,12 @@
+Code;Description
+N;NOT APPLICABLE
+9;EXCELLENT CONDITION
+8;VERY GOOD CONDITION - no problems noted.
+7;GOOD CONDITION - some minor problems.
+6;SATISFACTORY CONDITION - structural elements show some minor deterioration.
+5;FAIR CONDITION - all primary structural elements are sound but may have minor section loss, cracking, spalling or scour.
+4;POOR CONDITION - advanced section loss, deterioration, spalling or scour. 
+3;SERIOUS CONDITION - loss of section, deterioration, spalling or scour have seriously affected primary structural components. Local failures are possible. Fatigue cracks in steel or shear cracks in concrete may be present.
+2;CRITICAL CONDITION - advanced deterioration of primary structural elements. Fatigue cracks in steel or shear cracks inconcrete may be present or scour may have removed substructuresupport. Unless corrective action is taken.closely monitored it may be necessary to closethe bridge until
+1;IMMINENT FAILURE CONDITION - major deterioration or section losspresent in critical structural components or obviousvertical orhorizontal movement affecting structurestability. Bridge is closed to traffic but corrective actionmay put back in light service.
+0;FAILED CONDITION - out of service - beyond corrective action.

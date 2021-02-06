@@ -1,0 +1,8 @@
+Code ;Description
+0;The inventory route is not a STRAHNET route.
+1;"The inventory route is on a Interstate STRAHNET
+route."
+2;"The inventory route is on a Non-Interstate
+STRAHNET route."
+3;"The inventory route is on a STRAHNET connector
+route."

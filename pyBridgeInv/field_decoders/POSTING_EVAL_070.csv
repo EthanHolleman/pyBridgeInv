@@ -1,0 +1,7 @@
+Code;Description
+5;Equal to or above legal loads
+4;0.1 - 9.9% below
+3;10.0 - 19.9% below
+2;20.0 - 29.9% below
+1;30.0 - 39.9% below
+0;39.9% below

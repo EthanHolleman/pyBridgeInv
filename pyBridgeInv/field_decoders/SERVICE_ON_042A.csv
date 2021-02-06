@@ -1,0 +1,11 @@
+Code ;Description
+1;Highway
+2;Railroad
+3;Pedestrian-bicycle
+4;Highway-railroad
+5;Highway-pedestrian
+6;Overpass structure at an interchange or second level of a multilevel interchange
+7;Third level (Interchange)
+8;Fourth level (Interchange)
+9;Building or plaza
+0;Othe

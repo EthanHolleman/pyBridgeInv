@@ -1,0 +1,13 @@
+Code;Description;Location
+01;Principal Arterial - Interstate;Rural
+02;Principal Arterial - Other;Rural
+06;Minor Arterial;Rural
+07;Major Collector;Rural
+08;Minor Collector;Rural
+09;Local;Rural
+11;Principal Arterial - Interstate;Urban
+12;Principal Arterial - Other Freeways or Expressways;Urban
+14;Other Principal Arterial;Urban
+16;Minor Arterial;Urban
+17;Collector;Urban
+19;Local;Urban

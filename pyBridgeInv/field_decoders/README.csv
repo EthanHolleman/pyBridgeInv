@@ -1,0 +1,6 @@
+Organization;Link to Docs
+"Each coding table is seperated into an indvidual sheet. 
+The names of these sheets should be reflected in the delim header items of the meta sheet. 
+This may or may not be the same as what appears in the actual documentation pdf (it is often abbreviated).";https://www.fhwa.dot.gov/bridge/mtguide.pdf
+If the names are different use what is listed in the meta sheet.;
+Record completed entries in the meta sheet and / or any notes issues you encounter;

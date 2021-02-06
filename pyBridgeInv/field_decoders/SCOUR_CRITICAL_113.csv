@@ -1,0 +1,36 @@
+Code;Description
+N;Bridge not over waterway.
+U;"Bridge with ""unknown"" foundation that has not been evaluated for
+scour. Since risk cannot be determined, flag for monitoring during
+flood events and, if appropriate, closure."
+T;"Bridge over ""tidal"" waters that has not been evaluated for scour,
+but considered low risk. Bridge will be monitored with regular
+inspection cycle and with appropriate underwater inspections.
+(""Unknown"" foundations in ""tidal"" waters should be coded U.)"
+9;"Bridge foundations (including piles) on dry land well above flood
+water elevations."
+8;"Bridge foundations determined to be stable for assessed or
+calculated scour conditions; calculated scour is above top of
+footing. (Example A)"
+7;"Countermeasures have been installed to correct a previously existing
+problem with scour. Bridge is no longer scour critical."
+6;"Scour calculation/evaluation has not been made. (Use only to
+describe case where bridge has not yet been evaluated for scour
+potential.)"
+5;"Bridge foundations determined to be stable for calculated scour
+conditions; scour within limits of footing or piles. (Example B)"
+4;"Bridge foundations determined to be stable for calculated scour
+conditions; field review indicates action is required to protect
+exposed foundations from effects of additional erosion and
+corrosion."
+3;"Bridge is scour critical; bridge foundations determined to be
+unstable for calculated scour conditions:
+- Scour within limits of footing or piles. (Example B)
+- Scour below spread-footing base or pile tips. (Example C)"
+2;"Bridge is scour critical; field review indicates that extensive
+scour has occurred at bridge foundations. Immediate action is
+required to provide scour countermeasures."
+1;"Bridge is scour critical; field review indicates that failure of
+piers/abutments is imminent. Bridge is closed to traffic."
+0;"Bridge is scour critical.
+traffic."

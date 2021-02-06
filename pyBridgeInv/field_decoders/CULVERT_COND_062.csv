@@ -1,0 +1,47 @@
+Code;Description
+N;"Not applicable.
+Use if structure is not a culvert."
+9;No deficiencies.
+8;"No noticeable or noteworthy deficiencies which affect the
+condition of the culvert. Insignificant scrape marks caused by
+drift."
+7;"Shrinkage cracks, light scaling, and insignificant spalling which
+does not expose reinforcing steel. Insignificant damage caused
+by drift with no misalignment and not requiring corrective
+action. Some minor scouring has occurred near curtain walls,
+wingwalls, or pipes. Metal culverts have a smooth symmetrical
+curvature with superficial corrosion and no pitting."
+6;"Deterioration or initial disintegration, minor chloride
+contamination, cracking with some leaching, or spalls on concrete
+or masonry walls and slabs. Local minor scouring at curtain
+walls, wingwalls, or pipes. Metal culverts have a smooth
+curvature, non-symmetrical shape, significant corrosion or
+moderate pitting."
+5;"Moderate to major deterioration or disintegration, extensive
+cracking and leaching, or spalls on concrete or masonry walls and
+slabs. Minor settlement or misalignment. Noticeable scouring or
+erosion at curtain walls, wingwalls, or pipes. Metal culverts
+have significant distortion and deflection in one section,
+significant corrosion or deep pitting."
+4;"Large spalls, heavy scaling, wide cracks, considerable
+efflorescence, or opened construction joint permitting loss of
+backfill. Considerable settlement or misalignment. Considerable
+scouring or erosion at curtain walls, wingwalls or pipes. Metal
+culverts have significant distortion and deflection throughout,
+extensive corrosion or deep pitting."
+3;"Any condition described in Code 4 but which is excessive in
+scope. Severe movement or differential settlement of the
+segments, or loss of fill. Holes may exist in walls or slabs.
+Integral wingwalls nearly severed from culvert. Severe scour or
+erosion at curtain walls, wingwalls or pipes. Metal culverts
+have extreme distortion and deflection in one section, extensive
+corrosion, or deep pitting with scattered perforations."
+2;"Integral wingwalls collapsed, severe settlement of roadway due to
+loss of fill. Section of culvert may have failed and can no
+longer support embankment. Complete undermining at curtain walls
+and pipes. Corrective action required to maintain traffic.
+Metal culverts have extreme distortion and deflection throughout
+with extensive perforations due to corrosion."
+1;Bridge closed. Corrective action may put back in light service.
+0;"Bridge closed.
+Replacement necessary."

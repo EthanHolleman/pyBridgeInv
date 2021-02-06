@@ -1,0 +1,9 @@
+Code;Description
+0;Not applicable
+1;Indian Reservation Road (IRR)
+2;Forest Highway (FH)
+3;Land Management Highway System (LMHS)
+4;Both IRR and FH
+5;Both IRR and LMHS
+6;Both FH and LMHS
+9;Combined IRR, FH and LMHS
