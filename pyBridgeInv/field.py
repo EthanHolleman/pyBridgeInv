@@ -25,7 +25,7 @@ class Field():
 
     @property
     def parsed_contents(self):
-        return self.contents
+        return self.raw_contents
 
     @property
     def fieldname(cls):
