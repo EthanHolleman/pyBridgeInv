@@ -1,5 +1,6 @@
 from pathlib import Path
 import csv
+from pyBridgeInv.field import CODE_TABLES
 
 class NciReader():
 
@@ -23,22 +24,20 @@ class NciReader():
         else:
             raise Exception()
     
+    def _row_dict_to_fields(self, row_dict, code_table_dict):
+        fields = {}
+        for fieldname in row_dict:
+            field_class = code_table_dict[fieldname]
+            raw_contents = row_dict[fieldname].strip()
+            fields[fieldname] = field_class.init_from_string(raw_contents)
+        return fields
+
+    
     def _process_row_dict(self, row_dict):
         fields = {}
         # have something like all fields which maps field names to other
         # stuff. This also means that there is some dependency in which
         # fields need to get read first because some depend on others
-        for fieldname in row_dict:
-            field_class = FIELD_CLASSES[fieldname]
-            raw_contents = row_dict[fieldname]
-            fields[fieldname] = field_class.init_from_string(raw_contents)
-        
-        for fieldname in dependent_rows:
-            field_class = FIELD_CLASSES[fieldname]
-            raw_contents = row_dict[fieldname]
-            dependent = fields[field_class.dependent_class.fieldname]
-            fields[fieldname] = field_class.init_from_string(raw_contents, dependent)
-        return fields
         # do all independent classes then the dependent classes
 
     def __iter__(self):
