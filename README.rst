@@ -1,7 +1,7 @@
 PyBridgeInv
 ===========
 
-**Py**thon **Bridge** **Inv**entory
+**Py** thon **Bridge** **Inv** entory
 
 The [National Bridge Inventory](https://www.fhwa.dot.gov/bridge/nbi.cfm) 
 collects data on all bridges in the United
