@@ -1,11 +1,13 @@
 # from pyBridgeInv import code_table_dict
 from datetime import datetime
-import sys
-import inspect
+import pandas as pd
+import sys, inspect
 
+from pyBridgeInv.code_tables import create_code_tables
 # Another way could be to link functions to specifc ones but then
 # would still need to define functions for all these
 
+CODE_TABLES = create_code_tables()
 
 class Field():
 
@@ -31,8 +33,8 @@ class Field():
 
     @property
     def code_table(cls):
-        if cls.fieldname in code_table_dict:
-            return code_table_dict[cls.fieldname]
+        if cls.fieldname in CODE_TABLES:
+            return CODE_TABLES[cls.fieldname]
         else:
             return {}
 
@@ -288,8 +290,16 @@ class UnderClearanceEval(DependentField):
     # What other stuff do we need for a field
     # maybe like description or that kind of thing
 
+def get_all_field_classes_dict():
+    clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
+    classes = []
+    for name, obj in clsmembers:
+        if issubclass(obj, Field):
+            classes.append(obj)
 
-def _get_independent_field_classes_dict():
+    return {c.fieldname: c for c in classes}
+
+def get_independent_field_classes_dict():
     # classes = [ for _, obj in clsmembers if isinstance(obj, Field)]
     clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
     classes = []
@@ -320,3 +330,4 @@ def parse_mmyy_string(string):
 
 def parse_qualified_mm(string):
     return string[0], int(string[1:])
+
