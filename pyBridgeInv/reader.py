@@ -54,16 +54,7 @@ class NciReader():
             raw_contents = row_dict[ind_field].strip()
             dependent_field = fields[field_class.dependent]
             fields[ind_field] = field_class.init_from_string(raw_contents, dependent_field)
-            
 
-
-
-
-
-        for fieldname in row_dict:
-            field_class = CODE_TABLES[fieldname]
-            raw_contents = row_dict[fieldname].strip()
-            fields[fieldname] = field_class.init_from_string(raw_contents)
         return fields
 
     
