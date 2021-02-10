@@ -1,17 +1,7 @@
 from pathlib import Path
 import csv
-from pyBridgeInv import field
-from pyBridgeInv.field import CODE_TABLES, DependentField, Field
-
-def dependent_code_tables(code_tables):
-    # get dependent field classes from code tables
-    dependent_fields = {}
-    for fieldname, code_table in code_table.items():
-        if issubclass(Field, code_table) and isinstance(code_table, DependentField):
-            dependent_fields[fieldname] = code_table
-    return dependent_fields
-
-DEPENDENT_CODE_TABLES = dependent_code_tables()
+from pyBridgeInv import FIELDS, DEP_FIELDS
+from pyBridgeInv.field import DependentField, Field
 
 class NciReader():
 
@@ -26,46 +16,36 @@ class NciReader():
         return csv.DictReader(
             open(str(filepath)), delimiter=self.delim
             )
-    
-    # @property
-    # def delim(self):
-    #     return self.delim
-    
-    # @delim.setter
-    # def delim(self, new_delim):
-    #     if
+
     def _process_row(self, row):
         if type(row) == dict:
-            return self._process_row_dict(row)
+            return self._row_dict_to_fields(row)
         else:
             raise Exception()
     
+    def _process_field(self, row_dict, field_class):
+        return field_class.init_from_string(row_dict[field_class.fieldname])
     
     def _row_dict_to_fields(self, row_dict):
         fields = {}
-        row_ind_fields = set(row_dict.keys()) - set(DEPENDENT_CODE_TABLES.keys())
-        for ind_field in row_ind_fields:
-            field_class = CODE_TABLES[ind_field]
-            raw_contents = row_dict[ind_field].strip()
-            fields[ind_field] = field_class.init_from_string(raw_contents)
+        for fieldname, raw_content in row_dict.items():
+            if fieldname in FIELDS:
+                if fieldname in DEP_FIELDS:
+                    dep_class = DEP_FIELDS[fieldname].dependent_class
+                    if dep_class.fieldname not in fields:  # has not been read yet
+                        dep_field = self._process_field(row_dict, dep_class)
+                    else:
+                        dep_field = fields[dep_class.fieldname]
+                    
+                    field_class = DEP_FIELDS[fieldname]
+                    
+                    fields[fieldname] = field_class.init_from_string(raw_content, dep_field)
+                else:
+                    field_class = FIELDS[fieldname]
+                    fields[fieldname] = self._process_field(row_dict, field_class)
         
-        for row in DEPENDENT_CODE_TABLES.keys():
-            field_class = CODE_TABLES[ind_field]
-            raw_contents = row_dict[ind_field].strip()
-            dependent_field = fields[field_class.dependent]
-            fields[ind_field] = field_class.init_from_string(raw_contents, dependent_field)
-
         return fields
-
-    
-    def _process_row_dict(self, row_dict):
-        fields = {}
-        return fields
-        # have something like all fields which maps field names to other
-        # stuff. This also means that there is some dependency in which
-        # fields need to get read first because some depend on others
-        # do all independent classes then the dependent classes
-    
+      
     def __iter__(self):
         return self
 

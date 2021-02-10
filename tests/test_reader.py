@@ -23,5 +23,18 @@ def test_reader_creation(reader):
 
 def test_reader_iteration(reader):
     for row in reader:
+        assert row
         assert isinstance(row, dict)
+        for fieldname, field in row.items():
+            try:
+                parsed_contents = field.parsed_contents
+            except Exception as e:
+                raise Exception(f'''
+            Failed to parse contents from {field}. Raw contents were
+            {field.raw_contents}. Raised exception: {e}
+            ''')
+
+
+
+
 

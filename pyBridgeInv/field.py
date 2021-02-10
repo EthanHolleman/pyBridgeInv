@@ -2,12 +2,10 @@
 from datetime import datetime
 import pandas as pd
 import sys, inspect
-
-from pyBridgeInv.code_tables import create_code_tables
+from pyBridgeInv import CODE_TABLES
+# from pyBridgeInv.code_tables import create_code_tables
 # Another way could be to link functions to specifc ones but then
 # would still need to define functions for all these
-
-CODE_TABLES = create_code_tables()
 
 class Field():
 
@@ -25,6 +23,8 @@ class Field():
 
     @property
     def parsed_contents(self):
+        if self.definition:
+            return self.definition
         return self.raw_contents
 
     @property
@@ -36,7 +36,7 @@ class Field():
         if cls.fieldname in CODE_TABLES:
             return CODE_TABLES[cls.fieldname]
         else:
-            return {}
+            return pd.DataFrame()
 
     @property
     def field_id(cls):
@@ -54,14 +54,10 @@ class Field():
         # willl have to be overwritten to reflect the coding table
         # for this reason coding tables should be transcribed with this
         # kind og lookup structure in mind
-        if self.code_table:
+        if not self.code_table.empty:
             return self.code_table.loc[self.raw_contents]['Description']
         else:
             return None
-
-    def __str__(self):
-        str(self.contents.strip())
-
 
 class DependentField(Field):
 
@@ -70,7 +66,7 @@ class DependentField(Field):
     dependent_class = None
 
     def __init__(self, raw_contents, dependent=None):
-        self.super().__init__(raw_contents)
+        super().__init__(raw_contents)
         self.dependent = dependent
 
     @classmethod
@@ -83,7 +79,7 @@ class DependentField(Field):
 
     @dependent.setter
     def dependent(self, new_depend):
-        required_type = type(type(self).dependent_class)
+        required_type = self.dependent_class
         if type(new_depend) != required_type:
             raise ValueError(
                 f'''
@@ -96,7 +92,8 @@ class DependentField(Field):
 
     @property
     def definition(self):
-        return self._dependent_lookup(self.dependent)
+        return self.code_table.loc[self.raw_contents][self.dependent.raw_contents]
+
 
 
 class StateCode(Field):
@@ -107,10 +104,6 @@ class StateCode(Field):
     def __init__(self, raw_contents):
         super().__init__(raw_contents)
 
-    @property
-    def parsed_contents(self):
-        pass
-
 
 class StructureNumber(Field):
 
@@ -120,10 +113,6 @@ class StructureNumber(Field):
     def __init__(self, raw_contents):
         super().__init__(raw_contents)
 
-    @property
-    def parsed_contents(self):
-        pass
-
 
 class RecordType(Field):
 
@@ -132,10 +121,6 @@ class RecordType(Field):
 
     def __init__(self, raw_contents):
         super().__init__(raw_contents)
-
-    @property
-    def parsed_contents(self):
-        pass
 
 
 class Kilometerpoint(Field):
@@ -182,10 +167,6 @@ class ServiceLevel(Field):
 
     def __init__(self, raw_contents):
         super().__init__(raw_contents)
-
-    @property
-    def parsed_contents(self):
-        pass
 
 
 class DetorKilos(Field):
@@ -275,7 +256,7 @@ class FunctionalClass(Field):
 
 class UnderClearanceEval(DependentField):
     fieldname = 'UNDCLRENCE_EVAL_069'
-    # dependent_class = SomeClass
+    dependent_class = FunctionalClass
     page_number = 0
 
     def __init__(self, raw_contents, dependent):
@@ -329,5 +310,7 @@ def parse_mmyy_string(string):
 
 
 def parse_qualified_mm(string):
-    return string[0], int(string[1:])
+    if string == 'N':
+        return None
+    return int(string[1:])
 
